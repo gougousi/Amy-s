@@ -1,0 +1,129 @@
+body {
+    background-color: #f5f5dc; /* beige */
+    margin: 0;
+    padding: 0;
+}
+nav {
+    text-align: center;
+    margin-top: 30px;
+}
+.brandname {
+    text-align: center;
+    color: #ff69b4; /* pink */
+    font-size: 3em;
+    font-weight: bold;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+    font-family: 'Arial Rounded MT Bold', Arial, sans-serif;
+}
+.slideshow-container {
+    position: relative;
+    max-width: 500px;   /* Set a max width for the slideshow */
+    margin: 40px auto;  /* Center and add space */
+    padding: 0;
+}
+.mySlides {
+    display: none;
+    position: relative;
+}
+.mySlides img {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;    /* Responsive, but never bigger than container */
+    height: auto;
+    border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    background: #fff8f0;
+    padding: 8px;
+}
+img {
+    width: 100%;
+    height: auto;
+}
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    background: rgba(0,0,0,0.5);
+}
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+.prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8);
+}
+.text {
+    color: #800080; /* purple */
+    font-size: 15px;
+    padding: 8px 12px;
+    position: absolute;
+    bottom: 8px;
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px #fff;
+}
+.numbertext {
+    color: #f2f2f2;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+}
+.dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+.active, .dot:hover {
+    background-color: #717171;
+}
+.center-btn {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+.shop-btn {
+    background-color: #ff69b4;
+    color: white;
+    border: none;
+    padding: 12px 28px;
+    border-radius: 25px;
+    font-size: 1.2em;
+    font-family: 'Arial Rounded MT Bold', Arial, sans-serif;
+    cursor: pointer;
+    transition: background 0.3s;
+    text-decoration: none;
+    font-weight: bold;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+.shop-btn:hover {
+    background-color: #d94f9f;
+}
+footer {
+    text-align: center;
+    background-color: #f5f5dc; /* beige */
+    padding: 20px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+footer p {
+    margin: 3px 0;
+    color: pink; /* pink */
+    font-size: 0.8em;
+}
