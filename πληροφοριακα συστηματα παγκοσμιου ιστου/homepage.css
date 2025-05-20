@@ -17,6 +17,12 @@ nav {
     letter-spacing: 2px;
     font-family: 'Arial Rounded MT Bold', Arial, sans-serif;
 }
+.text-align {
+    color: #800080; /* purple, or choose any color you like */
+    font-size: 1em;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
 .slideshow-container {
     position: relative;
     max-width: 500px;   /* Set a max width for the slideshow */
@@ -30,7 +36,7 @@ nav {
 .mySlides img {
     display: block;
     margin: 0 auto;
-    max-width: 100%;    /* Responsive, but never bigger than container */
+    max-width: 70%;    /* Responsive, but never bigger than container */
     height: auto;
     border-radius: 16px;
     box-shadow: 0 4px 16px rgba(0,0,0,0.08);
@@ -38,7 +44,7 @@ nav {
     padding: 8px;
 }
 img {
-    width: 100%;
+    width: 50%;
     height: auto;
 }
 .prev, .next {
@@ -95,14 +101,36 @@ img {
 
 footer {
     text-align: center;
+    font-family: 'Arial Rounded MT Bold', Arial, sans-serif;
     background-color: #f5f5dc; /* beige */
-    padding: 20px;
+    padding: 1px;
     position: fixed;
-    bottom: 0;
+    bottom: 0px;
     width: 100%;
-}
+} 
 footer p {
     margin: 3px 0;
     color: pink; /* pink */
     font-size: 0.8em;
+} 
+.pink-button {
+    display: block;
+    width: fit-content;
+    margin: 30px auto 20px auto;
+    background-color: #ff69b4;
+    color: #fff;
+    padding: 14px 32px;
+    border: none;
+    border-radius: 24px;
+    font-size: 1.2em;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background 0.3s;
+    box-shadow: 0 2px 8px rgba(255,105,180,0.15);
+    text-align: center;
 }
+.pink-button:hover {
+    background-color: #ff1493;
+}
+
+
