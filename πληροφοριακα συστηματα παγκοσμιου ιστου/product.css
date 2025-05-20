@@ -1,0 +1,64 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #fff8f4;
+  color: #333;
+  margin: 0;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Τίτλος σελίδας */
+h1 {
+  color: #c71585;
+  font-size: 2rem;
+  margin-bottom: 30px;
+}
+
+/* Container των κατηγοριών */
+.categories {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 40px;
+  margin-top: 20px;
+}
+
+/* Κάθε σύνδεσμος (εικόνα + τίτλος) */
+.categories a {
+  text-decoration: none;
+  color: #333;
+  transition: transform 0.2s ease;
+}
+
+.categories a:hover {
+  transform: scale(1.05);
+}
+
+/* Οι εικόνες */
+.categories img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Κείμενο κάτω από κάθε εικόνα */
+.categories p {
+  margin-top: 10px;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+/* Responsive για κινητά */
+@media (max-width: 600px) {
+  .categories {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .categories img {
+    width: 90%;
+    height: auto;
+  }
+}
