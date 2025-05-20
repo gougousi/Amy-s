@@ -92,28 +92,7 @@ img {
 .active, .dot:hover {
     background-color: #717171;
 }
-.center-btn {
-    display: flex;
-    justify-content: center;
-    margin-top: 30px;
-}
-.shop-btn {
-    background-color: #ff69b4;
-    color: white;
-    border: none;
-    padding: 12px 28px;
-    border-radius: 25px;
-    font-size: 1.2em;
-    font-family: 'Arial Rounded MT Bold', Arial, sans-serif;
-    cursor: pointer;
-    transition: background 0.3s;
-    text-decoration: none;
-    font-weight: bold;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-}
-.shop-btn:hover {
-    background-color: #d94f9f;
-}
+
 footer {
     text-align: center;
     background-color: #f5f5dc; /* beige */
