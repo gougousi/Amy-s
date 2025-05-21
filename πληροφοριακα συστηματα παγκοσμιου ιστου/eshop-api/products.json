@@ -1,6 +1,5 @@
 [
   {
-    "ID": 1,
     "name": "Κόκκινη γόβα",
     "image": "images/redShoe.jpg",
     "description": "Κομψή κόκκινη γόβα με τακούνι 10cm.",
@@ -10,14 +9,8 @@
     "brand": "Gucci"
   },
   {
-<<<<<<< HEAD
-    "ID": 2,
-    "name": "Μαύρη λουστρίνι",
-    "image": "",
-=======
     "name": "Μαύρη λουστρίνι γόβα",
     "image": "images/goba2.jpg",
->>>>>>> 7bbb5bb56f68072102acf1eec46ac3752b92f150
     "description": "Κλασικό στυλ με λάμψη και άνεση.",
     "likes": 8,
     "price": 899.00,
@@ -25,14 +18,8 @@
     "brand": "Prada"
   },
   {
-<<<<<<< HEAD
-    "ID": 3,
-    "name": "Μπεζ Nude",
-    "image": "",
-=======
     "name": "Μπεζ Nude γόβα",
     "image": "images/goba3.jpg",
->>>>>>> 7bbb5bb56f68072102acf1eec46ac3752b92f150
     "description": "Ιδανική για νυφικά ή chic εμφανίσεις.",
     "likes": 15,
     "price": 699.00,
@@ -40,7 +27,6 @@
     "brand": "Jimmy Choo"
   },
   {
-    "ID": 4,
     "name": "Γόβα με λουράκι",
     "image": "images/goba4.jpg",
     "description": "Σταθερότητα & στυλ για όλη τη μέρα.",
@@ -50,7 +36,6 @@
     "brand": "Christian Louboutin"
   },
   {
-    "ID": 5,
     "name": "Μαύρη γόβα",
     "image": "images/goba5.jpg",
     "description": "Κλασική μαύρη γόβα για κάθε περίσταση.",
@@ -60,9 +45,6 @@
     "brand": "Christian Louboutin"
   },
   {
-<<<<<<< HEAD
-    "ID": 6,
-=======
     "name":"Γόβα με λουράκι ",
     "image": "images/goba6.jpg",
     "description": "Ιδανική για νυφικά ή chic εμφανίσεις.",
@@ -99,7 +81,6 @@
 
 },
 {
->>>>>>> 7bbb5bb56f68072102acf1eec46ac3752b92f150
     "name": "Λευκό Πέδιλο",
     "image": "images/pedila2.jpg",
     "description": "Ιδανικό για καλοκαιρινές εξόδους.",
@@ -109,7 +90,6 @@
     "brand": "Christian Louboutin"
   },
   {
-    "ID": 7,
     "name": "Χρυσό Πέδιλο",
     "image": "images/pedila3.jpg",
     "description": "Για πιο επίσημες εμφανίσεις.",
@@ -119,23 +99,15 @@
     "brand": "Gianvito Rossi"
   },
   {
-<<<<<<< HEAD
-    "ID": 8,
-    "name": "Flat Πέδιλο",
-    "image": "",
-    "description": "Άνεση για όλη μέρα.",
-=======
     "name": "Πέδιλο λουστρίνι",
     "image": "images/pedila4.jpg",
     "description": "Πέδιλο λουστρίνι με χρύσες λεπτομέρειες για εντυπωσιακές εμφανίσεις",
->>>>>>> 7bbb5bb56f68072102acf1eec46ac3752b92f150
     "likes": 6,
     "price": 899.00,
     "category": "Πέδιλα",
     "brand": "Versace"
   },
   {
-    "ID": 9,
     "name": "Πέδιλο με πέρλες",
     "image": "images/pedila5.jpg",
     "description": "Εντυπωσιακή λεπτομέρεια για ξεχωριστές στιγμές.",
