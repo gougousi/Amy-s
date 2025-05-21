@@ -11,49 +11,57 @@ app.config["MONGO_URI"] = "mongodb://localhost:27017/eshop"
 mongo = PyMongo(app)
 products_collection = mongo.db.products
 
-# ----------------- ROUTES ------------------
+# Δημιουργία Text Index στο πεδίο 'name' (μία φορά αρκεί)
+products_collection.create_index([("name", "text")])
 
-# GET όλα τα προϊόντα
-@app.route('/products', methods=['GET'])
-def get_products():
-    products = list(products_collection.find())
-    for p in products:
-        p['_id'] = str(p['_id'])  # μετατροπή για αποστολή σε JSON
-    return jsonify(products)
+@app.route("/search", methods=["GET"])
+def search_products():
+    name = request.args.get("name", "").strip()
+    query = {}
 
-# POST νέο προϊόν
-@app.route('/products', methods=['POST'])
-def add_product():
-    data = request.json
-    required_fields = ['name', 'image', 'description', 'likes']
-    if not all(field in data for field in required_fields):
-        return jsonify({'error': 'Missing fields'}), 400
-    product_id = products_collection.insert_one(data).inserted_id
-    return jsonify({'message': 'Product added', 'id': str(product_id)})
+    if name:
+        # Αν name είναι πλήρες όνομα προϊόντος (ακριβές ταίριασμα)
+        exact_match = products_collection.find_one({"name": name})
+        if exact_match:
+            result = [exact_match]
+        else:
+            # Χρήση text search για μερικό ταίριασμα
+            query = {"$text": {"$search": name}}
+            result = list(products_collection.find(query).sort("price", -1))
+    else:
+        # Επιστροφή όλων των προϊόντων
+        result = list(products_collection.find())
 
-# GET προϊόν με id
-@app.route('/products/<product_id>', methods=['GET'])
-def get_product(product_id):
-    from bson.objectid import ObjectId
-    product = products_collection.find_one({'_id': ObjectId(product_id)})
-    if product:
-        product['_id'] = str(product['_id'])
-        return jsonify(product)
-    return jsonify({'error': 'Product not found'}), 404
+    # Μετατροπή _id σε string
+    for product in result:
+        product["_id"] = str(product["_id"])
 
-# PUT - αύξησε τα likes
-@app.route('/products/<product_id>/like', methods=['PUT'])
-def like_product(product_id):
-    from bson.objectid import ObjectId
+    return jsonify(result)
+
+@app.route("/like", methods=["POST"])
+def like_product():
+    data = request.get_json()
+    product_id = data.get("id")
+
+    if not product_id:
+        return jsonify({"error": "Missing product id"}), 400
+
     result = products_collection.update_one(
-        {'_id': ObjectId(product_id)},
-        {'$inc': {'likes': 1}}
+        {"_id": ObjectId(product_id)},
+        {"$inc": {"likes": 1}}
     )
-    if result.matched_count:
-        return jsonify({'message': 'Liked'})
-    return jsonify({'error': 'Product not found'}), 404
 
-# --------------------------------------------
+    if result.modified_count == 0:
+        return jsonify({"error": "Product not found"}), 404
 
-if __name__ == '__main__':
-    app.run(debug=True)
+    return jsonify({"message": "Like added successfully"}), 200
+
+@app.route("/popular-products", methods=["GET"])
+def popular_products():
+    result = list(products_collection.find().sort("likes", -1).limit(5))
+    for product in result:
+        product["_id"] = str(product["_id"])
+    return jsonify(result)
+
+if __name__ == "__main__":
+    app.run(host="127.0.0.1", port=5000, debug=True)
