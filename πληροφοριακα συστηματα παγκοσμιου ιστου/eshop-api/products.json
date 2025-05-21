@@ -1,6 +1,6 @@
 [
   {
-    "ID": 1,
+    "ID":1,
     "name": "Κόκκινη γόβα",
     "image": "images/redShoe.jpg",
     "description": "Κομψή κόκκινη γόβα με τακούνι 10cm.",
@@ -10,8 +10,7 @@
     "brand": "Gucci"
   },
   {
-
-    "ID": 2,
+   "ID": 2,
     "name": "Μαύρη λουστρίνι γόβα",
     "image": "images/goba2.jpg",
     "description": "Κλασικό στυλ με λάμψη και άνεση.",
@@ -21,7 +20,6 @@
     "brand": "Prada"
   },
   {
-
     "ID": 3,
     "name": "Μπεζ Nude γόβα",
     "image": "images/goba3.jpg",
@@ -52,9 +50,7 @@
     "brand": "Christian Louboutin"
   },
   {
-
-    "ID": 6,
-
+   "ID": 6,
     "name":"Γόβα με λουράκι ",
     "image": "images/goba6.jpg",
     "description": "Ιδανική για νυφικά ή chic εμφανίσεις.",
@@ -62,19 +58,16 @@
     "price": 925.00,
     "category": "Γόβες",
     "brand": "Jimmy Choo"
-
-    
   },
 {
-  "ID":7,
-  "name":"Γόβα J'Adior ",
+   "ID":7,
+   "name":"Γόβα J'Adior ",
     "image": "images/goba7.jpg",
     "description": "Μαύρη γόβα J'Adior με λεπτομέρεια δαντέλας.",
     "likes": 26,
     "price": 580.00,
     "category": "Γόβες",
     "brand": " Dior"
-
 },
 
 
@@ -90,11 +83,10 @@
     "price": 390.00,
     "category": "Πέδιλα",
     "brand": "Gianvito Rossi"
-
 },
 {
   "ID":9,
-    "name": "Λευκό Πέδιλο",
+   "name": "Λευκό Πέδιλο",
     "image": "images/pedila2.jpg",
     "description": "Ιδανικό για καλοκαιρινές εξόδους.",
     "likes": 5,
@@ -103,6 +95,7 @@
     "brand": "Christian Louboutin"
   },
   {
+
     "ID": 10,
     "name": "Χρυσό Πέδιλο",
     "image": "images/pedila3.jpg",
@@ -115,19 +108,16 @@
   {
 
     "ID": 11,
-    
-
-    "name": "Πέδιλο λουστρίνι",
+   "name": "Πέδιλο λουστρίνι",
     "image": "images/pedila4.jpg",
     "description": "Πέδιλο λουστρίνι με χρύσες λεπτομέρειες για εντυπωσιακές εμφανίσεις",
-
     "likes": 6,
     "price": 899.00,
     "category": "Πέδιλα",
     "brand": "Versace"
   },
   {
-    "ID": 12,
+   "ID": 12,
     "name": "Πέδιλο με πέρλες",
     "image": "images/pedila5.jpg",
     "description": "Εντυπωσιακή λεπτομέρεια για ξεχωριστές στιγμές.",
@@ -145,7 +135,6 @@
     "price": 855.00,
     "category": "Πέδιλα",
     "brand": "Alexander McQueen"
-
   },
 
   {
@@ -157,8 +146,7 @@
     "price": 660.00,
     "category": "Πέδιλα",
     "brand": "Elisabetta Franchi"
-
-  },
+},
 
 
 
@@ -173,7 +161,6 @@
     "price": 690.00,
     "category": "Mules",
     "brand": "Valentino Garavani"
-
   },
   {
     "ID":16,
