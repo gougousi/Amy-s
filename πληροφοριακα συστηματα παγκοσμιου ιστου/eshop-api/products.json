@@ -1,0 +1,83 @@
+[
+  {
+    "name": "Κόκκινη γόβα",
+    "image": "images/redShoe.jpg",
+    "description": "Κομψή κόκκινη γόβα με τακούνι 10cm.",
+    "likes": 12,
+    "price": 1299.99,
+    "category": "Γόβες",
+    "brand": "Gucci"
+  },
+  {
+    "name": "Μαύρη λουστρίνι",
+    "image": "",
+    "description": "Κλασικό στυλ με λάμψη και άνεση.",
+    "likes": 8,
+    "price": 899.99,
+    "category": "Γόβες",
+    "brand": "Prada"
+  },
+  {
+    "name": "Μπεζ Nude",
+    "image": "",
+    "description": "Ιδανική για νυφικά ή chic εμφανίσεις.",
+    "likes": 15,
+    "price": 699.99,
+    "category": "Γόβες",
+    "brand": "Jimmy Choo"
+  },
+  {
+    "name": "Γόβα με λουράκι",
+    "image": "",
+    "description": "Σταθερότητα & στυλ για όλη τη μέρα.",
+    "likes": 20,
+    "price": 499.99,
+    "category": "Γόβες",
+    "brand": "Christian Louboutin"
+  },
+  {
+    "name": "Μαύρη γόβα",
+    "image": "",
+    "description": "Κλασική μαύρη γόβα για κάθε περίσταση.",
+    "likes": 10,
+    "price": 799.99,
+    "category": "Γόβες",
+    "brand": "Chanel"
+  },
+  {
+    "name": "Λευκό Πέδιλο",
+    "image": "",
+    "description": "Ιδανικό για καλοκαιρινές εξόδους.",
+    "likes": 5,
+    "price": 1099.99,
+    "category": "Πέδιλα",
+    "brand": "Dior"
+  },
+  {
+    "name": "Χρυσό Πέδιλο",
+    "image": "",
+    "description": "Για πιο επίσημες εμφανίσεις.Για πιο επίσημες εμφανίσεις.",
+    "likes": 7,
+    "price": 1199.99,
+    "category": "Πέδιλα",
+    "brand": "Valentino"
+  },
+  {
+    "name": "Flat Πέδιλο",
+    "image": "",
+    "description": "Άνεση για όλη μέρα.",
+    "likes": 6,
+    "price": 899.99,
+    "category": "Πέδιλα",
+    "brand": "Fendi"
+  },
+  {
+    "name": "Πέδιλο με πέρλες",
+    "image": "",
+    "description": "Εντυπωσιακή λεπτομέρεια για ξεχωριστές στιγμές.",
+    "likes": 4,
+    "price": 1299.99,
+    "category": "Πέδιλα",
+    "brand": "Alexander McQueen"
+  }
+]
