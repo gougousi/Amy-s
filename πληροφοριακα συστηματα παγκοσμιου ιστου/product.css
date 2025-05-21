@@ -96,3 +96,22 @@ footer p {
     color: pink; /* pink */
     font-size: 0.8em;
 } 
+/* Search bar styling */
+.search-bar-container {
+  display: flex;
+  justify-content: center;
+  margin: 30px 0 10px 0;
+}
+
+#productSearch {
+  width: 320px;
+  padding: 10px 16px;
+  border: 2px solid #b76e79;
+  border-radius: 24px;
+  font-size: 1rem;
+  outline: none;
+  transition: border 0.2s;
+}
+
+#productSearch:focus {
+  border: 2px solid #a05260;}
