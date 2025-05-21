@@ -115,3 +115,23 @@ footer p {
 
 #productSearch:focus {
   border: 2px solid #a05260;}
+
+.pink-button {
+    display: block;
+    width: fit-content;
+    margin: 30px auto 20px auto;
+    background-color: #941554;
+    color: #fff;
+    padding: 0px 40px;
+    border: none;
+    border-radius: 24px;
+    font-size: 1.2em;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background 0.3s;
+    box-shadow: 0 2px 8px rgba(255,105,180,0.15);
+    text-align: center;
+}
+.pink-button:hover {
+    background-color: #4a0329;
+}
