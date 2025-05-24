@@ -1,7 +1,9 @@
 from flask import Flask, request, jsonify
 from flask_pymongo import PyMongo
 from flask_cors import CORS
+from bson.objectid import ObjectId
 import numpy as np
+
 
 app = Flask(__name__)
 CORS(app)
@@ -27,27 +29,27 @@ def search_products():
         else:
             # Χρήση text search για μερικό ταίριασμα
             query = {"$text": {"$search": name}}
-            result = list(products_collection.find(query).sort("price", -1))
+            result = list(products_collection.find(query).sort("ID", 1))
     else:
         # Επιστροφή όλων των προϊόντων
         result = list(products_collection.find())
 
     # Μετατροπή _id σε string
     for product in result:
-        product["_id"] = str(product["_id"])
+        del(product["_id"])
 
     return jsonify(result)
 
 @app.route("/like", methods=["POST"])
 def like_product():
     data = request.get_json()
-    product_id = data.get("id")
+    product_id = data.get("ID")
 
     if not product_id:
         return jsonify({"error": "Missing product id"}), 400
 
     result = products_collection.update_one(
-        {"_id": ObjectId(product_id)},
+        {"ID": product_id},
         {"$inc": {"likes": 1}}
     )
 
@@ -56,12 +58,15 @@ def like_product():
 
     return jsonify({"message": "Like added successfully"}), 200
 
+
 @app.route("/popular-products", methods=["GET"])
 def popular_products():
     result = list(products_collection.find().sort("likes", -1).limit(5))
     for product in result:
-        product["_id"] = str(product["_id"])
+#        product["_id"] = str(product["_id"])
+        del(product["_id"]) 
     return jsonify(result)
 
 if __name__ == "__main__":
     app.run(host="127.0.0.1", port=5000, debug=True)
+
