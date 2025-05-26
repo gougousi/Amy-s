@@ -60,13 +60,13 @@ def like_product():
     return jsonify({"message": "Like added successfully"}), 200
 
 
-@app.route("/popular-products", methods=["GET"])
-def popular_products():
-    result = list(products_collection.find().sort("likes", -1).limit(5))
-    for product in result:
-#        product["_id"] = str(product["_id"])
-        del(product["_id"]) 
-    return jsonify(result)
+    @app.route("/popular-products", methods=["GET"])
+    def popular_products():
+        result = list(products_collection.find().sort("likes", -1).limit(5))
+        for product in result:
+    #        product["_id"] = str(product["_id"])
+            del(product["_id"]) 
+        return jsonify(result)
 
 if __name__ == "__main__":
     app.run(host="127.0.0.1", port=5000, debug=True)
