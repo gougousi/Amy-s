@@ -8,7 +8,7 @@ import numpy as np
 app = Flask(__name__)
 CORS(app)
 
-# Ρυθμίσεις MongoDB
+# Ρυθμίσεις MongoDBx
 app.config["MONGO_URI"] = "mongodb://localhost:27017/eshop"
 mongo = PyMongo(app)
 products_collection = mongo.db.products
