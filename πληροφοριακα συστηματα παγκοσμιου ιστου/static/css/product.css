@@ -82,6 +82,27 @@ h1 {
   background-color: #ff1493;
 }
 
+.like-button {
+  background-color: #ff36ff; /* Light pink */;
+  border: none;
+  color: rgb(72, 0, 48);
+  padding: 12px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-family: 'Arial', sans-serif;
+  font-size: 19px;
+  margin: 3px 2px;
+  cursor: pointer;
+  border-radius: 9px;
+  box-shadow: 0 4px 6px rgba(174, 99, 99, 0.1);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.like-button:hover {
+  background-color: #ff1493; /* Darker pink on hover */
+  transform: translateY(-2px);
+}
+
 footer {
     text-align: center;
     font-family: 'Arial Rounded MT Bold', Arial, sans-serif;

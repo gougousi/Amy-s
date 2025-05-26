@@ -16,6 +16,7 @@ products_collection = mongo.db.products
 # Δημιουργία Text Index στο πεδίο 'name' (μία φορά αρκεί)
 products_collection.create_index([("name", "text")])
 
+
 @app.route("/search", methods=["GET"])
 def search_products():
     name = request.args.get("name", "").strip()
