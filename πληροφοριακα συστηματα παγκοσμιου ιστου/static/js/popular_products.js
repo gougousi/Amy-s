@@ -1,4 +1,4 @@
-const BASE_URL = 'http://127.0.0.1:3000/';
+const BASE_URL = 'http://127.0.0.1:5000/';
 
 async function fetchProducts() {
     try {
@@ -17,7 +17,7 @@ async function fetchProducts() {
         numberText.textContent = `${index + 1}/${data.length}`;
 
         const img = document.createElement('img');
-        img.src = `${BASE_URL}${product.images}`;
+        img.src = `/static/images/${product.images}`;
         img.alt = product.name;
 
         slide.appendChild(numberText);
