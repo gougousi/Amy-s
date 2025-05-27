@@ -41,6 +41,7 @@ def search_products():
 
     return jsonify(result)
 
+
 @app.route("/like", methods=["POST"])
 def like_product():
     data = request.get_json()
@@ -60,13 +61,16 @@ def like_product():
     return jsonify({"message": "Like added successfully"}), 200
 
 
-    @app.route("/popular-products", methods=["GET"])
-    def popular_products():
-        result = list(products_collection.find().sort("likes", -1).limit(5))
-        for product in result:
-    #        product["_id"] = str(product["_id"])
-            del(product["_id"]) 
-        return jsonify(result)
+@app.route("/popular-products", methods=["GET"])
+def popular_products():
+    result = list(products_collection.find().sort("likes", -1).limit(5))
+    for product in result:
+        del product["_id"]
+        # Προαιρετικό: κρατάμε μόνο το όνομα του αρχείου εικόνας
+        if "images" in product and product["images"].startswith("images/"):
+            product["images"] = product["images"].split("/")[-1]
+    return jsonify(result)
+    
 
 if __name__ == "__main__":
     app.run(host="127.0.0.1", port=5000, debug=True)
