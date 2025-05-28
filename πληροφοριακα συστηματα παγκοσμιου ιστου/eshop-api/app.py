@@ -4,8 +4,12 @@ from flask_cors import CORS
 from bson.objectid import ObjectId
 import numpy as np
 
+import os
+app = Flask(__name__, static_folder="../static")
 
-app = Flask(__name__)
+
+
+#app = Flask(__name__)
 CORS(app)
 
 # Ρυθμίσεις MongoDBx
