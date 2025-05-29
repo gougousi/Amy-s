@@ -72,7 +72,7 @@ img {
     color: #800080; /* purple */
     font-size: 15px;
     padding: 8px 12px;
-    position: absolute;
+    position: realitive;
     bottom: 8px;
     width: 100%;
     text-align: center;

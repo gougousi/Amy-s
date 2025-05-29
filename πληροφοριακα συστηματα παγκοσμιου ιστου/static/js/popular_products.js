@@ -8,22 +8,28 @@ async function fetchProducts() {
     const slideshowContainer = document.querySelector('.slideshow-container');
     slideshowContainer.innerHTML = '';
 
-    data.forEach((product, index) => {
-        const slide = document.createElement('div');
-        slide.className = 'mySlides fade';
+   data.forEach((product, index) => {
+    const slide = document.createElement('div');
+    slide.className = 'mySlides fade';
 
-        const numberText = document.createElement('div');
-        numberText.className = 'numbertext';
-        numberText.textContent = `${index + 1}/${data.length}`;
+    const numberText = document.createElement('div');
+    numberText.className = 'numbertext';
+    numberText.textContent = `${index + 1}/${data.length}`;
 
-        const img = document.createElement('img');
-        img.src = `/static/images/${product.images}`;
-        img.alt = product.name;
+    const img = document.createElement('img');
+    img.src = `static/images/${product.image}`;
 
-        slide.appendChild(numberText);
-        slide.appendChild(img);
-        slideshowContainer.appendChild(slide);
-    });
+    const name = document.createElement('div');
+    name.className = 'text';
+    name.textContent = product.name;
+
+    // Append elements in the correct order
+    slide.appendChild(numberText);
+    slide.appendChild(img);   // Make sure the image comes before the text
+    slide.appendChild(name);
+
+    document.querySelector('.slideshow-container').appendChild(slide);
+});
 
     showSlides(slideIndex); // Αρχικοποιεί το slideshow
     } catch (error) {
