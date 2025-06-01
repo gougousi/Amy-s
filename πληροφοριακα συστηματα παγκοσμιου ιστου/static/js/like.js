@@ -1,38 +1,52 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const images = document.querySelectorAll(".product img");
+document.addEventListener('DOMContentLoaded', function () {
+  const products = document.querySelectorAll('.product');
 
-  images.forEach(img => {
-    img.addEventListener("click", () => {
-      const productId = img.getAttribute("data-id");
+  products.forEach(product => {
+    const productId = product.querySelector('img').dataset.id;
 
-      if (!productId) {
-        console.error("Missing product ID");
-        return;
-      }
+    // Δημιουργία wrapper για κουμπί + counter δίπλα-δίπλα
+    const likeWrapper = document.createElement('div');
+    likeWrapper.classList.add('like-wrapper'); // για styling
 
-      fetch("/like", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({ ID: parseInt(productId) }) // ή απλό string, αν το ID στη βάση είναι string
-      })
-      .then(response => {
-        if (!response.ok) {
-          throw new Error("Failed to like product");
-        }
-        return response.json();
-      })
+    // Κουμπί like
+    const likeButton = document.createElement('button');
+    likeButton.textContent = '❤️ Μου αρέσει';
+    likeButton.classList.add('like-btn');
+
+    // Μετρητής likes
+    const likeCount = document.createElement('span');
+    likeCount.classList.add('like-count');
+    likeCount.textContent = '0'; // fallback αρχική τιμή
+
+    // ✅ Φόρτωση likes από backend
+    fetch(`http://localhost:3000/likes/${productId}`)
+      .then(res => res.json())
       .then(data => {
-        console.log("Like sent!", data);
-        alert("💖 Έδωσες like στο προϊόν!");
+        likeCount.textContent = `${data.likes}`;
       })
-      .catch(err => {
-        console.error("Error:", err);
-        alert("⚠️ Κάτι πήγε στραβά.");
+      .catch(() => {
+        likeCount.textContent = '0'; // fallback σε αποτυχία
       });
+
+    // ✅ Click για like
+    likeButton.addEventListener('click', () => {
+      fetch(`http://localhost:3000/likes/${productId}`, {
+        method: 'POST'
+      })
+        .then(res => res.json())
+        .then(data => {
+          if (data.likes !== undefined) {
+            likeCount.textContent = `${data.likes}`;
+          }
+        })
+        .catch(() => {
+          alert("Σφάλμα κατά την καταχώρηση του like.");
+        });
     });
+
+    // ✅ Προσθήκη στο wrapper και στο προϊόν
+    likeWrapper.appendChild(likeButton);
+    likeWrapper.appendChild(likeCount);
+    product.appendChild(likeWrapper);
   });
 });
-// This script adds a click event listener to each product image.
-// When an image is clicked, it sends a POST request to the server with the product ID.

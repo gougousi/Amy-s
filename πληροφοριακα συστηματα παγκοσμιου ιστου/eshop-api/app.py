@@ -80,4 +80,11 @@ if __name__ == "__main__":
     app.run(host="127.0.0.1", port=5000, debug=True)
 
 
-
+@app.route("/api/products", methods=["GET"])
+def get_all_products():
+    result = list(products_collection.find().sort("ID", 1))
+    for product in result:
+        del product["_id"]
+        if "images" in product and product["images"].startswith("images/"):
+            product["images"] = product["images"].split("/")[-1]
+    return jsonify(result)
