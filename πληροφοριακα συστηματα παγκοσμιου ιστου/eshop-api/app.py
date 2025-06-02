@@ -5,7 +5,7 @@ from bson.objectid import ObjectId
 import numpy as np
 from bson.errors import InvalidId
 from pymongo import ReturnDocument
-from bson import ObjectId
+# from bson import ObjectId
 
 
 
@@ -15,7 +15,7 @@ app = Flask(__name__, static_folder="../static")
 
 
 #app = Flask(__name__)
-CORS(app)
+CORS(app, resources={r"/*": {"origins": "*"}})
 
 # Ρυθμίσεις MongoDBx
 app.config["MONGO_URI"] = "mongodb://localhost:27017/eshop"
@@ -46,21 +46,21 @@ def like_product():
     except InvalidId:
         return jsonify({"error": "Invalid product id format"}), 400
 
-    # Χρησιμοποιούμε find_one_and_update με return_document=True για να πάρουμε το νέο έγγραφο
+    # Fixed return_document parameter and variable name
     result = products_collection.find_one_and_update(
-        {"_id": oid},
+        {"_id": oid},  # Use oid instead of product_id
         {"$inc": {"likes": 1}},
-        return_document=True
+        return_document=ReturnDocument.AFTER
     )
 
     if not result:
         return jsonify({"error": "Product not found"}), 404
 
+    # Return a JSON serializable response
     return jsonify({
         "message": "Like added",
         "likes": result.get("likes", 0)
     })
-
 
 
 @app.route("/popular-products", methods=["GET"])
@@ -80,7 +80,7 @@ def popular_products():
 def get_all_products():
     result = list(products_collection.find().sort("ID", 1))
     for product in result:
-        del product["_id"]
+        product["_id"] = str(product["_id"])
         if "images" in product and product["images"].startswith("images/"):
             product["images"] = product["images"].split("/")[-1]
     return jsonify(result)
@@ -109,7 +109,7 @@ def search_products():
 
     # Μετατροπή _id σε string
     for product in result:
-        del(product["_id"])
+        product["_id"] = str(product["_id"])
 
     return jsonify(result)
 

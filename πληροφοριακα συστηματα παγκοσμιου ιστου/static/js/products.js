@@ -63,22 +63,50 @@ function renderProducts(products) {
         likeButton.style.cursor = "pointer";
 
        
-likeButton.addEventListener('click', async () => {
+likeButton.addEventListener("click", async () => {
     try {
-      console.log(product._id.toString());
-        const response = await fetch('http://127.0.0.1:5000/like', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ id: product._id }) // Στέλνεις το _id όπως είναι από MongoDB
-        });
+        console.log("Sending like request for product ID:", product._id);
+        
+        // Add visual feedback while processing
+        likeButton.disabled = true;
+        likeButton.textContent = "...";
 
-        if (!response.ok) throw new Error('Failed to like product');
+        const response = await fetch("http://127.0.0.1:5000/like", {
+            method: "POST",
+            headers: { 
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            },
+            credentials: "same-origin",
+            body: JSON.stringify({ id: product._id }),
+        });
+        
+        console.log("Response status:", response.status);
+        
+        if (!response.ok) {
+            const errorText = await response.text();
+            console.error("Server error response:", errorText);
+            throw new Error(`Failed to like product: ${response.status} ${response.statusText}`);
+        }
 
         const data = await response.json();
-        product.likes = product.likes+1;   // Ενημέρωση με την τιμή που επέστρεψε το backend
+        console.log("Like response:", data);
+
+        // Update the UI
+        product.likes = data.likes;
         likeCell.textContent = product.likes;
+        
+        // Show success feedback
+        likeButton.textContent = "✓";
+        setTimeout(() => {
+            likeButton.textContent = "💖";
+            likeButton.disabled = false;
+        }, 1000);
     } catch (error) {
-        console.error('Error liking product:', error);
+        console.error("Error liking product:", error);
+        // Restore button state
+        likeButton.textContent = "💖";
+        likeButton.disabled = false;
     }
 });
 
