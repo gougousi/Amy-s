@@ -30,71 +30,7 @@ products_collection.create_index([("name", "text")])
 
 
 
-"""@app.route("/like", methods=["POST"])
-def like_product():
-    data = request.get_json()
-    product_id = data.get("ID")
 
-    if not product_id:
-        return jsonify({"error": "Missing product id"}), 400
-
-    result = products_collection.update_one(
-        {"ID": product_id},
-        {"$inc": {"likes": 1}}
-    )
-
-    if result.modified_count == 0:
-        return jsonify({"error": "Product not found"}), 404
-
-    return jsonify({"message": "Like added successfully"}), 200"""
-"""
-@app.route("/like", methods=["POST"])
-def like_product():
-    data = request.get_json()
-    product_id = data.get("_id")
-
-    if not product_id:
-        return jsonify({"error": "Missing product id"}), 400
-    
-    try:
-        oid = ObjectId(product_id)
-    except InvalidId:
-        return jsonify({"error": "Invalid product id format"}), 400
-
-    result = products_collection.find_one_and_update(
-    {"_id": ObjectId(product_id)},
-    {"$inc": {"likes": 1}},
-    return_document=True
-)
-
-
-    if not result:
-        return jsonify({"error": "Product not found"}), 404
-
-    return jsonify({
-        "message": "Like added successfully",
-        "likes": result.get("likes", 0)  # επιστρέφει το νέο count likes
-    }), 200
-
-"""
-
-"""@app.route('/like', methods=['POST'])
-def like_product():
-    data = request.get_json(force=True)
-    prod_id = data.get('id')
-    if not prod_id:
-        return jsonify({"error": "Missing product id"}), 400
-
-    try:
-        result = products_collection.update_one(
-            {"_id": ObjectId(prod_id)},
-            {"$inc": {"likes": 1}}
-        )
-        if result.matched_count == 0:
-            return jsonify({"error": "Product not found"}), 404
-        return jsonify({"message": "Like added"})
-    except Exception as e:
-        return jsonify({"error": str(e)}), 400"""
 
 
 
