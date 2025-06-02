@@ -6,13 +6,18 @@
   <meta charset="utf-8">
   <title>Amy's - Προϊόντα</title>
   <link rel="stylesheet" href="static/css/product.css">
-  <script src="static/js/search.js"></script>
-  <script src="static/js/like.js"></script>
+  <!--<script src="static/js/search.js"></script>-->
+  <!--<script src="static/js/like.js"></script>-->
   <script src="static/js/products.js"></script>
+  <!--<script src="{{ url_for('static', filename='js/products.js') }}"></script>-->
+
   
 </head>
 
 <body>
+   <div class="logo">
+      <img src="static/images/amys.png"/>
+    </div>
 <a href="homepage.html" class="home-btn">🏠 Αρχική Σελίδα</a>
   <h1> Οι διαθέσιμες κατηγορίες Παπουτσιών</h1>
 
@@ -43,6 +48,20 @@
 
 <h2>Όλα τα προϊόντα μας</h2>
 
+<table id="resultsTable">
+    <thead>
+      <tr>
+        <th>Όνομα</th>
+        <th>Εικόνα</th>
+        <th>Περιγραφή</th>
+        <th>Τιμή</th>
+        <th>Likes</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+    </tbody>
+  </table>
 
   <section class="all-products">
     <!--<div class="product">
@@ -190,21 +209,29 @@
       <h3>Δερμάτινα Mules με Μύτη</h3>
       <p>Κλασική γραμμή με μυτερό τελείωμα και πολυτελές δέρμα.</p>
       <p><strong>Τιμή:</strong> 730€</p>
+
+    
     </div>-->
+    
   </section>
+
 
 
 <!--javascript for search-->
 
 
-  
+  <script src="static/js/products.js"></script>
+
     <!--   -->
 </body>
 
 <footer>
-        <!--<p>Κατερίνα Γουγούση</p>
-        <p>Άννα-Μαρία Καλιακάτσου</p>
-        <p>Βικτωρία Μπακατσή</p>-->
-        <p>Κατερίνα Γουγούση / Άννα-Μαρία Καλιακάτσου / Βικτωρία Μπακατσή</p>
-    </footer>
+    <div style="max-width: 1200px; margin: 0 auto; padding: 20px; text-align: center; color: #555;">
+      
+      <p>Η ομάδα μας: Άννα-Μαρία Καλιακάτσου / Κατερίνα Γουγούση / Βικτωρία Μπακατσή.</p>
+      <p>Ευχαριστούμε για την επίσκεψή σας στο e-shop μας!</p>
+      <p>Ελπίζουμε να βρήκατε αυτό που ψάχνατε!</p>
+      <p>Για οποιαδήποτε απορία ή βοήθεια, μη διστάσετε να επικοινωνήσετε μαζί μας.</p>
+    </div>
+  </footer>
 </html>

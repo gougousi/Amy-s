@@ -107,14 +107,16 @@ footer {
     text-align: center;
     font-family: 'Arial Rounded MT Bold', Arial, sans-serif;
     background-color: #f5f5dc; /* beige */
-    padding: 1px;
-    position: fixed;
+    margin-top: 40px;
+    font-size: 14px;
+    padding: 15px;
     bottom: 0px;
     width: 100%;
 } 
+
 footer p {
     margin: 3px 0;
-    color: pink; /* pink */
+    color: rgb(229, 97, 119); /* pink */
     font-size: 0.8em;
 } 
 /* Search bar styling */
@@ -155,4 +157,14 @@ footer p {
 }
 .pink-button:hover {
     background-color: #4a0329;
+}
+
+.logo {
+  text-align: center;
+}
+
+.logo img {
+  height: 150px;
+  width: auto;
+  display: inline-block;
 }

@@ -9,17 +9,21 @@ document.addEventListener('DOMContentLoaded', function () {
     likeWrapper.classList.add('like-wrapper'); // για styling
 
     // Κουμπί like
+    const productElement = document.createElement('div');
     const likeButton = document.createElement('button');
-    likeButton.textContent = '❤️ Μου αρέσει';
-    likeButton.classList.add('like-btn');
+    likeButton.textContent = 'Like ❤️';
+    likeButton.setAttribute('data-id', product._id);
+    productElement.appendChild(likeButton);
+
 
     // Μετρητής likes
     const likeCount = document.createElement('span');
-    likeCount.classList.add('like-count');
-    likeCount.textContent = '0'; // fallback αρχική τιμή
+    likeCount.textContent = product.likes;
+    productElement.appendChild(likeCount);
+
 
     // ✅ Φόρτωση likes από backend
-    fetch(`http://localhost:3000/likes/${productId}`)
+    fetch(`http://localhost:3000/like/${productId}`)
       .then(res => res.json())
       .then(data => {
         likeCount.textContent = `${data.likes}`;
@@ -30,9 +34,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // ✅ Click για like
     likeButton.addEventListener('click', () => {
-      fetch(`http://localhost:3000/likes/${productId}`, {
-        method: 'POST'
-      })
+      const productId = likeButton.getAttribute('data-id');
+      fetch(`http://localhost:3000/like/${productId}`)
         .then(res => res.json())
         .then(data => {
           if (data.likes !== undefined) {
@@ -43,6 +46,8 @@ document.addEventListener('DOMContentLoaded', function () {
           alert("Σφάλμα κατά την καταχώρηση του like.");
         });
     });
+
+
 
     // ✅ Προσθήκη στο wrapper και στο προϊόν
     likeWrapper.appendChild(likeButton);

@@ -103,8 +103,9 @@ footer {
     text-align: center;
     font-family: 'Arial Rounded MT Bold', Arial, sans-serif;
     background-color: #f5f5dc; /* beige */
-    padding: 1px;
-    position: fixed;
+    margin-top: 40px;
+    font-size: 14px;
+    padding: 15px;
     bottom: 0px;
     width: 100%;
 } 
@@ -131,6 +132,15 @@ footer p {
 }
 .pink-button:hover {
     background-color: #ff1493;
+}
+.logo {
+  text-align: center;
+}
+
+.logo img {
+  height: 150px;
+  width: auto;
+  display: inline-block;
 }
 
 
